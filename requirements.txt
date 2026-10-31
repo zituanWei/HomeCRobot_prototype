@@ -1,0 +1,31 @@
+# ===== 核心依赖 =====
+torch>=2.3.0
+torchvision>=0.18.0
+transformers>=4.45.0
+accelerate>=0.34.0
+bitsandbytes>=0.43.0          # 4bit/8bit 量化，降低显存占用
+qwen-vl-utils>=0.0.8          # Qwen-VL 官方图像处理工具
+
+# ===== 摄像头与图像处理 =====
+opencv-python>=4.10.0
+Pillow>=10.0.0
+numpy>=1.26.0
+
+# ===== 音频 I/O（语音输入输出的地基，必需）=====
+# 麦克风采集 + 扬声器后台播放 + 打断，全部依赖它
+sounddevice>=0.4.6            # 跨平台音频 I/O（Windows 用预编译 wheel，无需编译）
+soundfile>=0.12.0             # 音频文件读写 + mp3/wav 解码（TTS 解码要用）
+
+# ===== 语音模块 =====
+# ASR: 语音识别（本地离线，中文效果好）
+funasr>=1.0.0                 # 阿里达摩院语音识别
+modelscope>=1.18.0            # FunASR 依赖的模型下载工具
+
+# TTS: 语音合成
+piper-tts>=1.8.0              # ★ 本地神经TTS（默认引擎，离线、约0.2s、音质接近在线）
+edge-tts>=6.1.0               # 微软在线TTS，音质最自然但有网络延迟（可切换）
+# cosyvoice>=0.1.0            # 阿里本地TTS，需额外部署，暂未启用
+
+# ===== 工具库 =====
+python-dotenv>=1.0.0
+rich>=13.0.0                  # 终端美化输出
